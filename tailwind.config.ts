@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx,js,jsx}", "./components/**/*.{ts,tsx,js,jsx}", "./app/**/*.{ts,tsx,js,jsx}", "./src/**/*.{ts,tsx,js,jsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx,js,jsx}",
+    "./components/**/*.{ts,tsx,js,jsx}",
+    "./app/**/*.{ts,tsx,js,jsx}",
+    "./src/**/*.{ts,tsx,js,jsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -100,15 +105,15 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "float": {
+        float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
-        "sway": {
+        sway: {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
         },
-        "flutter": {
+        flutter: {
           "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
           "25%": { transform: "translateY(-5px) rotate(5deg)" },
           "75%": { transform: "translateY(-3px) rotate(-5deg)" },
@@ -130,13 +135,14 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 3s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
         "float-slow": "float 5s ease-in-out infinite",
-        "sway": "sway 4s ease-in-out infinite",
-        "flutter": "flutter 2s ease-in-out infinite",
+        sway: "sway 4s ease-in-out infinite",
+        flutter: "flutter 2s ease-in-out infinite",
         "grow-in": "grow-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
-        "bounce-in": "bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+        "bounce-in":
+          "bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
       },
     },
   },

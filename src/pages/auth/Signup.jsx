@@ -12,7 +12,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import GardenBackground from "@/components/layout/GardenBackground";
-import { Images } from "../../utils/images";
+import { Images } from "../../utils/Image";
 
 const Signup = () => {
   const navigate = useNavigate();

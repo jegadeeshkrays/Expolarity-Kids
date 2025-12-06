@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { useAppStore } from "@/store/useAppStore";
 import GardenBackground from "@/components/layout/GardenBackground";
-import { Images } from "../../utils/images";
+import { Images } from "../../utils/Image";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { LogIn, Eye, EyeOff } from "lucide-react";
+import {
+  LogIn,
+  Eye,
+  EyeOff,
+  GoalIcon,
+  Smartphone,
+  LockKeyhole,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,6 +20,8 @@ import {
 import { useAppStore } from "@/store/useAppStore";
 import GardenBackground from "@/components/layout/GardenBackground";
 import { Images } from "../../utils/Image";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -48,7 +57,7 @@ const Login = () => {
       <GardenBackground />
 
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <div className="border-2 bg-white rounded-xl p-2">
+        <div className="flex flex-col gap-3 bg-white rounded-xl p-2">
           <div className="flex px-4 py-2">
             <img
               src={Images.LOGO}
@@ -64,27 +73,25 @@ const Login = () => {
               Please login to begin your journey toward self-awareness.{" "}
             </CardDescription>
           </div>
-
-          <div className="px-4 py-2">
+          <div className="px-4 py-2 flex flex-col gap-3">
             <form onSubmit={handleSubmit} className="space-y-2">
-              <div className="">
+              <div className="space-y-2">
                 <label className="text-sm font-semibold text-primary/60">
                   Mobile Number
                 </label>
                 <div className="relative">
-                  {/* <PhoneIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-black w-5 h-5" /> */}
-                  <Input
-                    type="tel"
-                    placeholder="Enter your number"
-                    className="p-2"
+                  <Smartphone className="absolute z-10 left-3 top-1/2 -translate-y-1/2 text-primary/60 w-[20px] h-[20px]" />
+                  <PhoneInput
+                    placeholder="Enter phone number"
                     value={formData.mobileNumber}
-                    onChange={(e) =>
+                    className="p-2 pl-10 border border-primary/60 rounded-sm"
+                    onChange={(value) =>
                       setFormData({
                         ...formData,
-                        mobileNumber: e.target.value,
+                        mobileNumber: value,
                       })
                     }
-                    required
+                    defaultCountry="IN"
                   />
                 </div>
               </div>
@@ -94,14 +101,14 @@ const Login = () => {
                   Password
                 </label>
                 <div className="relative">
-                  {/* <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" /> */}
+                  <LockKeyhole className="absolute z-10 left-3 top-1/2 -translate-y-1/2 text-primary/60 w-5 h-5" />
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter password"
-                    className="p-2"
+                    className="p-2 pl-10 border border-primary/60"
                     value={formData.password}
                     onChange={(e) =>
-                      setFormData({ ...formData, password: e.target.value })
+                      setFormData({ ...formData, password: e?.target?.value })
                     }
                     required
                   />
@@ -115,7 +122,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between py-2">
                 <div className="flex gap-1 items-center">
                   <input type="checkbox" name="rememberme" id="rememberme" />
                   <label
@@ -158,8 +165,43 @@ const Login = () => {
               </button>
             </form>
 
-            <div></div>
-            <div className="mt-6 text-center">
+            <div className="flex flex-col">
+              <div className="flex items-center py-2">
+                <div className="flex-1 h-px bg-gray-300"></div>
+                <span className="px-3 text-gray-500 text-sm">or log in</span>
+                <div className="flex-1 h-px bg-gray-300"></div>
+              </div>
+              <div className="flex items-center justify-between gap-3 w-full">
+                <Link to="#">
+                  <div className="px-8 py-3 border rounded-lg cursor-pointer">
+                    <img
+                      src={Images.GOOGLELOGO}
+                      alt="googleLogo"
+                      className="h-[30px] w-[30px] object-contain"
+                    />
+                  </div>
+                </Link>
+                <Link to="#">
+                  <div className="px-8 py-3 border rounded-lg cursor-pointer">
+                    <img
+                      src={Images.FBlOGO}
+                      alt="googleLogo"
+                      className="h-[30px] w-[30px] object-contain"
+                    />
+                  </div>
+                </Link>
+                <Link to="#">
+                  <div className="px-8 py-3 border rounded-lg cursor-pointer">
+                    <img
+                      src={Images.APPLELOGO}
+                      alt="googleLogo"
+                      className="h-[30px] w-[30px] object-contain"
+                    />
+                  </div>
+                </Link>
+              </div>
+            </div>
+            <div className="text-center">
               <p className="text-primary/50 text-xs">
                 New here?{" "}
                 <Link
